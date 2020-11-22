@@ -72,12 +72,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Protobuf Include="..\Protos\greet.proto">
-      <Link>Protos\greet.proto</Link>
-      <Generator>Protobuf</Generator>
-    </Protobuf>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Foss.FossDoc.Protos\Foss.FossDoc.Protos.csproj">
+      <Project>{d27d4df4-a0d1-4924-a44e-f7a939ffbb37}</Project>
+      <Name>Foss.FossDoc.Protos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

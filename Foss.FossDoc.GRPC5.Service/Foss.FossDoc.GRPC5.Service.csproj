@@ -9,13 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Protos\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Protobuf Include="..\Protos\greet.proto" GrpcServices="Server">
-      <Link>Protos\greet.proto</Link>
-    </Protobuf>
+    <ProjectReference Include="..\Foss.FossDoc.Protos\Foss.FossDoc.Protos.csproj" />
   </ItemGroup>
 
 </Project>
