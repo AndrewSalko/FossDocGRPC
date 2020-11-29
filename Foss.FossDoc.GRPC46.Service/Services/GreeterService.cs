@@ -17,6 +17,8 @@ namespace Foss.FossDoc.GRPC46.Service.Services
 
 		public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
 		{
+			//context.RequestHeaders.
+
 			return Task.FromResult(new HelloReply
 			{
 				Message = "Hello " + request.Name

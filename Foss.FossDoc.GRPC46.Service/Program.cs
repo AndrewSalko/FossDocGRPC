@@ -29,5 +29,15 @@ namespace Foss.FossDoc.GRPC46.Service
             server.ShutdownAsync().Wait();
 
 		}
+
+		void _Test1()
+		{
+			Foss.FossDoc.GRPC5.Service.OID oid = new OID();
+			//oid.BaseAndData1 == (int, int)
+			//oid.Data23       == (uint)
+			//oid.Data4047     == ulong
+
+		}
+
 	}
 }

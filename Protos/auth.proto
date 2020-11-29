@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option csharp_namespace = "Foss.FossDoc.GRPC5.Service.Authentication";
+
+//Specification:
+//https://developers.google.com/protocol-buffers/docs/proto3
+
+package fossdoc.authentication;
+
+// Authenticator
+service Authenticator
+{
+  // Login to server to get token
+  rpc Login (AuthRequest) returns (AuthReply);
+}
+
+// The login request containing user's password (hashed)
+message AuthRequest 
+{
+  string login = 1;
+  string password = 2;
+}
+
+// The response message containing access token
+message AuthReply 
+{
+  string token = 1;
+}

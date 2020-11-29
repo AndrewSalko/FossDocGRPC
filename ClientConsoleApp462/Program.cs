@@ -25,7 +25,11 @@ namespace ClientConsoleApp462
 				var client = new Greeter.GreeterClient(channel);
 				string user = "Andrew Salko";
 
-				var reply = client.SayHello(new HelloRequest { Name = user });
+				//CallOptions opts = new CallOptions();
+				Metadata meta = new Metadata();
+				meta.Add("Auth", "MY_TOKEN");
+
+				var reply = client.SayHello(new HelloRequest { Name = user }, meta);
 				Console.WriteLine("Greeting: " + reply.Message);
 
 				channel.ShutdownAsync().Wait();

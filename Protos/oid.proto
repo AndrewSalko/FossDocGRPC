@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "Foss.FossDoc.GRPC5.Service";
+
+//Specification:
+//https://developers.google.com/protocol-buffers/docs/proto3
+
+package fossdoc;
+
+// OID struct
+
+message OID
+{
+  //base, Data1
+  fixed64 base_and_data1 = 1;
+
+  //short 2,3
+  fixed32 data23 = 2;
+
+  //8 bytes - 40..47
+  fixed64 data4047 = 3;
+}
+
+
