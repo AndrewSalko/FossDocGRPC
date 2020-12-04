@@ -17,7 +17,11 @@ namespace Foss.FossDoc.GRPC46.Service
 
 			Server server = new Server
 			{
-				Services = { Greeter.BindService(new GreeterService()) },
+				Services =
+				{
+					Greeter.BindService(new GreeterService()),
+					EventsHub.BindService(new EventsHubService())
+				},
 				Ports = { new ServerPort("localhost", port, ServerCredentials.Insecure) }
 			};
 			server.Start();

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "Foss.FossDoc.GRPC5.Service";
+
+package fossdoc;
+
+// For subscribing server events 
+service EventsHub 
+{
+  rpc Subscribe(SubcribeRequest) returns (stream ServerEvent);
+}
+
+// The request message containing the user's name.
+message SubcribeRequest 
+{
+  string name = 1;
+}
+
+// The response message containing the greetings.
+message ServerEvent 
+{
+  string message = 1;
+}

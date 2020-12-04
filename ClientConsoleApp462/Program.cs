@@ -12,7 +12,7 @@ namespace ClientConsoleApp462
 {
 	class Program
 	{
-		static void Main(string[] args)
+		static async Task Main(string[] args)
 		{
 			try
 			{
@@ -31,6 +31,26 @@ namespace ClientConsoleApp462
 
 				var reply = client.SayHello(new HelloRequest { Name = user }, meta);
 				Console.WriteLine("Greeting: " + reply.Message);
+
+				//а теперь подписка на события и получаем их:
+				var eventsClient = new EventsHub.EventsHubClient(channel);
+
+				int count = 0;
+
+				var responseEvents = eventsClient.Subscribe(new SubcribeRequest());
+				while (await responseEvents.ResponseStream.MoveNext())
+				{
+					ServerEvent evt = responseEvents.ResponseStream.Current;
+					Console.WriteLine(evt.Message);
+
+					count++;
+
+					if (count > 10)
+					{
+						responseEvents.Dispose();
+						break;
+					}
+				}
 
 				channel.ShutdownAsync().Wait();
 

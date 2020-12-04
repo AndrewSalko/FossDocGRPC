@@ -6,6 +6,9 @@
 
   <ItemGroup>
     <Protobuf Include="..\Protos\auth.proto" Link="auth.proto" />
+    <Protobuf Include="..\Protos\eventshub.proto">
+      <Link>eventshub.proto</Link>
+    </Protobuf>
     <Protobuf Include="..\Protos\greet.proto" Link="greet.proto" />
     <Protobuf Include="..\Protos\oid.proto" Link="oid.proto" />
   </ItemGroup>

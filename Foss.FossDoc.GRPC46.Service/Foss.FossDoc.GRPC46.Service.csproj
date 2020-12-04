@@ -71,6 +71,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\EventsHubService.cs" />
     <Compile Include="Services\GreeterService.cs" />
   </ItemGroup>
   <ItemGroup>
