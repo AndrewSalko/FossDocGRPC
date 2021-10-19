@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "Foss.FossDoc.GRPC5.Service";
+option csharp_namespace = "Foss.FossDoc.GRPC.Greet";
 
 package greet;
 

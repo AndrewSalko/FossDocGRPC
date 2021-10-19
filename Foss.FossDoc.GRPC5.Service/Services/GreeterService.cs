@@ -4,10 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Foss.FossDoc.GRPC.Greet;
 
 namespace Foss.FossDoc.GRPC5.Service.Services
 {
-	public class GreeterService : Greeter.GreeterBase
+	public class GreeterService : Foss.FossDoc.GRPC.Greet.Greeter.GreeterBase
 	{
 		readonly ILogger<GreeterService> _Logger;
 

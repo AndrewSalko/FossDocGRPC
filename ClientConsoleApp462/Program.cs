@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Foss.FossDoc.GRPC5.Service;
+//using Foss.FossDoc.GRPC5.Service;
 using Grpc.Core;
 
 
@@ -22,37 +22,15 @@ namespace ClientConsoleApp462
 
 				Channel channel = new Channel("127.0.0.1:5000", ChannelCredentials.Insecure);
 
-				var client = new Greeter.GreeterClient(channel);
-				string user = "Andrew Salko";
+				var authClient = new Foss.FossDoc.GRPC.Authentication.Authenticator.AuthenticatorClient(channel);
+				var authReq = new Foss.FossDoc.GRPC.Authentication.AuthRequest();
+				authReq.Login = "Andrew";
+				authReq.Password = "123";
 
-				//CallOptions opts = new CallOptions();
-				Metadata meta = new Metadata();
-				meta.Add("Auth", "MY_TOKEN");
+				var reply = authClient.Login(authReq);
+				Console.WriteLine($"Auth reply: {reply.Token}");
 
-				var reply = client.SayHello(new HelloRequest { Name = user }, meta);
-				Console.WriteLine("Greeting: " + reply.Message);
-
-				//а теперь подписка на события и получаем их:
-				var eventsClient = new EventsHub.EventsHubClient(channel);
-
-				int count = 0;
-
-				var responseEvents = eventsClient.Subscribe(new SubcribeRequest());
-				while (await responseEvents.ResponseStream.MoveNext())
-				{
-					ServerEvent evt = responseEvents.ResponseStream.Current;
-					Console.WriteLine(evt.Message);
-
-					count++;
-
-					if (count > 10)
-					{
-						responseEvents.Dispose();
-						break;
-					}
-				}
-
-				channel.ShutdownAsync().Wait();
+				await channel.ShutdownAsync();
 
 				Console.WriteLine("Done");
 			}
@@ -61,5 +39,39 @@ namespace ClientConsoleApp462
 				Console.WriteLine(ex.ToString());
 			}
 		}
+
+		void _Test()
+		{
+			//var client = new Greeter.GreeterClient(channel);
+			//string user = "Andrew Salko";
+
+			////CallOptions opts = new CallOptions();
+			//Metadata meta = new Metadata();
+			//meta.Add("Auth", "MY_TOKEN");
+
+			//var reply = client.SayHello(new HelloRequest { Name = user }, meta);
+			//Console.WriteLine("Greeting: " + reply.Message);
+
+			////а теперь подписка на события и получаем их:
+			//var eventsClient = new EventsHub.EventsHubClient(channel);
+
+			//int count = 0;
+
+			//var responseEvents = eventsClient.Subscribe(new SubcribeRequest());
+			//while (await responseEvents.ResponseStream.MoveNext())
+			//{
+			//	ServerEvent evt = responseEvents.ResponseStream.Current;
+			//	Console.WriteLine(evt.Message);
+
+			//	count++;
+
+			//	if (count > 10)
+			//	{
+			//		responseEvents.Dispose();
+			//		break;
+			//	}
+			//}
+		}
+
 	}
 }

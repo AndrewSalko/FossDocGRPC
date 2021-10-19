@@ -3,8 +3,9 @@ using Grpc.Net.Client;
 
 
 using System.Threading.Tasks;
-using Foss.FossDoc.GRPC5.Service;
+
 using Grpc.Core;
+
 
 namespace ClientConsoleApp5
 {
@@ -16,12 +17,23 @@ namespace ClientConsoleApp5
 
 			var channel = new Channel("127.0.0.1:5000", ChannelCredentials.Insecure);
 
-			var client = new Greeter.GreeterClient(channel);
-			string user = "Andrew Salko from .NET 5";
+			//Тест клиента аутентификации: приложение на .NET 5 способно "увидеть" сборку Foss.FossDoc.Protos (.NET Stand 2.0)
+			//и использовать собранные обертки gRPC из нее
 
-			var reply = client.SayHello(new HelloRequest { Name = user });
+			var authClient = new Foss.FossDoc.GRPC.Authentication.Authenticator.AuthenticatorClient(channel);
+			var authReq = new Foss.FossDoc.GRPC.Authentication.AuthRequest();
+			authReq.Login = "Andrew";
+			authReq.Password = "123";
 
-			Console.WriteLine("Greeting: " + reply.Message);
+			var reply = authClient.Login(authReq);
+			Console.WriteLine($"Auth reply: {reply.Token}");
+
+			
+			//	var client = new Greeter.GreeterClient(channel);
+			//	string user = "Andrew Salko from .NET 5";
+			//	var reply = client.SayHello(new HelloRequest { Name = user });
+			//	Console.WriteLine("Greeting: " + reply.Message);
+			
 
 			await channel.ShutdownAsync();
 

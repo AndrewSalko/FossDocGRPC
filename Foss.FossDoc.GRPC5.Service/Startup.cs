@@ -32,6 +32,7 @@ namespace Foss.FossDoc.GRPC5.Service
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapGrpcService<Foss.FossDoc.GRPC5.Service.Services.GreeterService>();
+				endpoints.MapGrpcService<Foss.FossDoc.GRPC5.Service.Services.AuthenticationService>();
 
 				endpoints.MapGet("/", async context =>
 				{

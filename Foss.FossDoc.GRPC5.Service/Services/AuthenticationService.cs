@@ -7,7 +7,7 @@ using Foss.FossDoc.GRPC.Authentication;
 using Grpc.Core;
 
 
-namespace Foss.FossDoc.GRPC46.Service.Services
+namespace Foss.FossDoc.GRPC5.Service.Services
 {
 	class AuthenticationService: Foss.FossDoc.GRPC.Authentication.Authenticator.AuthenticatorBase
 	{
