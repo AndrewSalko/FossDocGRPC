@@ -27,8 +27,9 @@ namespace Foss.FossDoc.GRPC46.Service
 					//Greeter.BindService(new GreeterService()),
 					//EventsHub.BindService(new EventsHubService())
 				},
-				Ports = { new ServerPort("localhost", port, ServerCredentials.Insecure) }
+				Ports = { new ServerPort("localhost", port, ServerCredentials.Insecure) },
 			};
+
 			server.Start();
 
 			Console.WriteLine("Server listening on port " + port);

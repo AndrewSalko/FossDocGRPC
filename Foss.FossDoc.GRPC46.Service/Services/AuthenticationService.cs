@@ -14,8 +14,20 @@ namespace Foss.FossDoc.GRPC46.Service.Services
 
 		public override Task<AuthReply> Login(AuthRequest request, ServerCallContext context)
 		{
+			const string authKey = "Authorization";
+
+			var meta = context.RequestHeaders;
+			if (meta != null)
+			{
+				var entry = meta.Get(authKey);
+				if (entry != null)
+				{
+					Console.WriteLine($"Login:  {authKey}:{entry.Value}");
+				}
+			}
+
 			AuthReply authReply = new AuthReply();
-			authReply.Token = "result token";
+			authReply.Token = "result token from server";
 
 			return Task.FromResult(authReply);
 		}
