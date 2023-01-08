@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30711.63
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientConsoleApp5", "ClientConsoleApp5\ClientConsoleApp5.csproj", "{8C526A9F-FA41-425A-9303-AF4AF56A3564}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConsoleApp462.csproj", "ClientConsoleApp462\ClientConsoleApp462.csproj", "{B9361865-4F0F-4433-9E01-9E0B912CF513}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConsoleApp462", "ClientConsoleApp462\ClientConsoleApp462.csproj", "{B9361865-4F0F-4433-9E01-9E0B912CF513}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foss.FossDoc.Standard.Interfaces", "Foss.Fossdoc.Standard.Interfaces\Foss.FossDoc.Standard.Interfaces.csproj", "{925D5AF9-4E39-484D-BBA0-3272F5C1BAA3}"
 EndProject
@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foss.FossDoc.GRPC5.Service"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foss.FossDoc.GRPC46.Service", "Foss.FossDoc.GRPC46.Service\Foss.FossDoc.GRPC46.Service.csproj", "{C174C648-9403-4650-B1C6-A53531550F45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foss.FossDoc.Protos", "Foss.FossDoc.Protos\Foss.FossDoc.Protos.csproj", "{D27D4DF4-A0D1-4924-A44E-F7A939FFBB37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Foss.FossDoc.Protos", "Foss.FossDoc.Protos\Foss.FossDoc.Protos.csproj", "{D27D4DF4-A0D1-4924-A44E-F7A939FFBB37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foss.FossDoc.GRPC6.Service", "Foss.FossDoc.GRPC6.Service\Foss.FossDoc.GRPC6.Service.csproj", "{C4DABE4D-11C5-4AE6-B5F1-5FA4321FD9C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{D27D4DF4-A0D1-4924-A44E-F7A939FFBB37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D27D4DF4-A0D1-4924-A44E-F7A939FFBB37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D27D4DF4-A0D1-4924-A44E-F7A939FFBB37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4DABE4D-11C5-4AE6-B5F1-5FA4321FD9C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4DABE4D-11C5-4AE6-B5F1-5FA4321FD9C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4DABE4D-11C5-4AE6-B5F1-5FA4321FD9C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4DABE4D-11C5-4AE6-B5F1-5FA4321FD9C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
